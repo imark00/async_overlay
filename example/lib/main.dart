@@ -1,5 +1,6 @@
 import 'package:async_overlay/async_overlay.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Async Overlay Example',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
@@ -61,6 +62,10 @@ class _ExampleScreenState extends State<ExampleScreen> {
               onPressed: showDefaultAsyncOverlayWithCustomLoader,
               child: Text('Show default Async Overlay with custom loader'),
             ),
+            ElevatedButton(
+              onPressed: showCustomOverlay,
+              child: Text('Show Custom Async Overlay'),
+            ),
           ],
         ),
       ),
@@ -99,7 +104,41 @@ class _ExampleScreenState extends State<ExampleScreen> {
       builder: (context) => AsyncOverlay(
         asyncTask(),
         message: Text('Loading'),
-        customLoader: const CustomLoader(),
+        loadingWidget: const CustomLoader(),
+      ),
+    );
+    if (!mounted) return;
+    setState(() {});
+  }
+
+  showCustomOverlay() async {
+    res = await showDialog(
+      context: context,
+      builder: (context) => AsyncOverlay(
+        asyncTask(),
+        customOverlay: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Lottie.network(
+                'https://lottie.host/add90c20-d592-4c79-90b1-35d4cdff3035/SXrl7L2Y8G.json',
+                height: 200,
+                width: 230,
+                renderCache: RenderCache.raster,
+              ),
+              Lottie.network(
+                'https://lottie.host/a3f86098-dd8c-4f30-9aa4-e4795eda9243/9b4YUI1crz.json',
+                height: 112,
+                width: 127,
+                renderCache: RenderCache.raster,
+              ),
+            ],
+          ),
+        ),
       ),
     );
     if (!mounted) return;
