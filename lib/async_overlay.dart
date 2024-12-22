@@ -20,6 +20,7 @@ class AsyncOverlay extends StatefulWidget {
   /// Set space between the loader and the text
   final double loaderAndTextSpacing;
 
+  /// Set overall custom overlay UI
   final Widget? customOverlayUI;
 
   const AsyncOverlay(
