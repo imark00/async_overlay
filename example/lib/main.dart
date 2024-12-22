@@ -72,7 +72,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
     );
   }
 
-  Future asyncTask() async {
+  Future asyncFutureTask() async {
     await Future.delayed(Duration(seconds: 5));
     return 'Hello World!';
   }
@@ -80,7 +80,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
   showDefaultAsyncOverlay() async {
     res = await showDialog(
       context: context,
-      builder: (context) => AsyncOverlay(asyncTask()),
+      builder: (context) => AsyncOverlay(asyncFutureTask()),
     );
     if (!mounted) return;
     setState(() {});
@@ -90,7 +90,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
     res = await showDialog(
       context: context,
       builder: (context) => AsyncOverlay(
-        asyncTask(),
+        asyncFutureTask(),
         message: Text('Loading'),
       ),
     );
@@ -102,7 +102,7 @@ class _ExampleScreenState extends State<ExampleScreen> {
     res = await showDialog(
       context: context,
       builder: (context) => AsyncOverlay(
-        asyncTask(),
+        asyncFutureTask(),
         message: Text('Loading'),
         loadingWidget: const CustomLoader(),
       ),
@@ -115,8 +115,8 @@ class _ExampleScreenState extends State<ExampleScreen> {
     res = await showDialog(
       context: context,
       builder: (context) => AsyncOverlay(
-        asyncTask(),
-        customOverlay: Container(
+        asyncFutureTask(),
+        customOverlayUI: Container(
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(16)),

@@ -1,39 +1,102 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# async_overlay
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+AsyncOverlay is a simple package, inspired by the [_future_progress_dialog_](https://github.com/donguseo/future_progress_dialog) 
+package for displaying custom overlay UIs during **_asynchronous Future operations_**. 
+It empowers developers to define their own unique loading overlays, 
+offering a flexible alternative to default UI options.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Supported Dart Version 
+**Dart SDK version >=3.0.0**
 
-## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Installation
 
-## Getting started
+Add **_async_overlay_** to pubspec:
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+```yaml
+dependencies:
+  async_overlay: # latest version 
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+Import the package 
 
 ```dart
-const like = 'sample';
+import 'package:async_overlay/async_overlay.dart';
 ```
 
-## Additional information
+Call [showDialog](https://api.flutter.dev/flutter/material/showDialog.html) method with **AsyncOverlay** to show overlay loading UI
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+- without message
+```dart
+await showDialog(
+      context: context,
+      builder: (context) => AsyncOverlay(asyncFutureTask()),
+    );
+```
+![](readme_assets/async_overlay_without_msg.gif)
+
+- with message
+```dart
+await showDialog(
+      context: context,
+      builder: (context) => AsyncOverlay(
+        asyncFutureTask(),
+        message: Text('Loading'),
+      ),
+    );
+```
+![](readme_assets/async_overlay_with_msg.gif)
+
+- with custom loading widget
+```dart
+await showDialog(
+      context: context,
+      builder: (context) => AsyncOverlay(
+        asyncFutureTask(),
+        message: Text('Loading'),
+        loadingWidget: const CustomLoader(),
+      ),
+    );
+```
+![](readme_assets/async_overlay_with_custom_loader.gif)
+
+- with custom overlay UI
+```dart
+await showDialog(
+      context: context,
+      builder: (context) => AsyncOverlay(
+        asyncFutureTask(),
+        customOverlayUI: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Lottie.network(
+                'https://lottie.host/add90c20-d592-4c79-90b1-35d4cdff3035/SXrl7L2Y8G.json',
+                height: 200,
+                width: 230,
+                renderCache: RenderCache.raster,
+              ),
+              Lottie.network(
+                'https://lottie.host/a3f86098-dd8c-4f30-9aa4-e4795eda9243/9b4YUI1crz.json',
+                height: 112,
+                width: 127,
+                renderCache: RenderCache.raster,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+```
+![](readme_assets/async_overlay_without_custom_overlay.gif)
+
+## Visitors Count
+
+<img src = "https://profile-counter.glitch.me/async_overlay/count.svg" alt ="Loading">

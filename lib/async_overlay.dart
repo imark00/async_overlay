@@ -20,7 +20,7 @@ class AsyncOverlay extends StatefulWidget {
   /// Set space between the loader and the text
   final double loaderAndTextSpacing;
 
-  final Widget? customOverlay;
+  final Widget? customOverlayUI;
 
   const AsyncOverlay(
     this.asyncTask, {
@@ -30,9 +30,9 @@ class AsyncOverlay extends StatefulWidget {
     this.message,
     this.insetPadding = kInsetPadding,
     this.loaderAndTextSpacing = 20,
-    this.customOverlay,
+    this.customOverlayUI,
   }) : assert(
-          customOverlay == null ||
+          customOverlayUI == null ||
               (decoration == null &&
                   loadingWidget == null &&
                   message == null &&
@@ -62,7 +62,7 @@ class _AsyncOverlayState extends State<AsyncOverlay> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         insetPadding: widget.insetPadding,
-        child: widget.customOverlay ??
+        child: widget.customOverlayUI ??
             (widget.message != null
                 ? Container(
                     height: 100,
