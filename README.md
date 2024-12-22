@@ -1,13 +1,13 @@
 # async_overlay
 
-AsyncOverlay is a simple package, inspired by the [_future_progress_dialog_](https://github.com/donguseo/future_progress_dialog) 
+AsyncOverlay is a simple package, inspired by the [_future_progress_dialog_](https://pub.dev/packages/future_progress_dialog) 
 package for displaying custom overlay UIs during **_asynchronous Future operations_**. 
 It empowers developers to define their own unique loading overlays, 
 offering a flexible alternative to default UI options.
 
 
 ## Supported Dart Version 
-**Dart SDK version >=3.0.0**
+**Dart SDK version >=3.6.0**
 
 
 ## Installation
@@ -36,7 +36,7 @@ await showDialog(
       builder: (context) => AsyncOverlay(asyncFutureTask()),
     );
 ```
-![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_without_msg.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/259d4eacc5c8e675b0cabb50ec8b628261935c67/readme_assets/async_overlay_without_msg.gif)
 
 - with message
 ```dart
@@ -48,7 +48,7 @@ await showDialog(
       ),
     );
 ```
-![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_with_msg.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/259d4eacc5c8e675b0cabb50ec8b628261935c67/readme_assets/async_overlay_with_msg.gif)
 
 - with custom loading widget
 ```dart
@@ -61,7 +61,7 @@ await showDialog(
       ),
     );
 ```
-![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_with_custom_loader.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/259d4eacc5c8e675b0cabb50ec8b628261935c67/readme_assets/async_overlay_with_custom_loader.gif)
 
 - with custom overlay UI
 ```dart
@@ -95,7 +95,7 @@ await showDialog(
       ),
     );
 ```
-![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_without_custom_overlay.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/259d4eacc5c8e675b0cabb50ec8b628261935c67/readme_assets/async_overlay_without_custom_overlay.gif)
 
 ## Visitors Count
 

@@ -1,6 +1,6 @@
 name: async_overlay
 description: "AsyncOverlay is a simple package for creating custom loading overlays during async Future operations, inspired by FutureProgressDialog."
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/imark00/async_overlay
 issue_tracker: https://github.com/imark00/async_overlay/issues
 
