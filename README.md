@@ -36,7 +36,7 @@ await showDialog(
       builder: (context) => AsyncOverlay(asyncFutureTask()),
     );
 ```
-![](readme_assets/async_overlay_without_msg.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_without_msg.gif)
 
 - with message
 ```dart
@@ -48,7 +48,7 @@ await showDialog(
       ),
     );
 ```
-![](readme_assets/async_overlay_with_msg.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_with_msg.gif)
 
 - with custom loading widget
 ```dart
@@ -61,7 +61,7 @@ await showDialog(
       ),
     );
 ```
-![](readme_assets/async_overlay_with_custom_loader.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_with_custom_loader.gif)
 
 - with custom overlay UI
 ```dart
@@ -95,7 +95,7 @@ await showDialog(
       ),
     );
 ```
-![](readme_assets/async_overlay_without_custom_overlay.gif)
+![](https://raw.githubusercontent.com/imark00/async_overlay/refs/heads/main/readme_assets/async_overlay_without_custom_overlay.gif)
 
 ## Visitors Count
 
